@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vue Test</title>
+
+  <!-- This is a development version of Vue.js! -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+  <!-- Google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Basic usage -->
+
+  <div id="app">
+    <h1>{{titulo}}</h1>
+
+    <ul>
+      <li v-for="car of cars">
+        {{car.name}} - {{car.fuel}}
+        <span v-if="car.stock == 0"> - Without stock</span>
+      </li>
+    </ul>
+
+  </div>
+
+  <script src="../js/01.js"></script>
+
+
+</body>
+
+</html>
