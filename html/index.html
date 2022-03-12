@@ -19,12 +19,19 @@
   <div id="app">
     <h1>{{titulo}}</h1>
 
+    <input type="text" v-model="newCar" @keyup.enter="addCar">
+    <!-- <button v-on:click="addCar">Add Car</button>-->
+    <button @click="addCar">Add Car</button>
+
     <ul>
       <li v-for="car of cars">
+        <input type="number" v-model.number="car.stock">
         {{car.name}} - {{car.fuel}}
         <span v-if="car.stock == 0"> - Without stock</span>
+        <button @click="car.stock++">+</button>
       </li>
     </ul>
+    <h4>Total: {{addNumberOfCars}}</h4>
 
   </div>
 
