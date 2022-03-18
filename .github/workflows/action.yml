@@ -5,10 +5,12 @@ on:
   push:
     branches: 
       - main
-    paths: 
-      - html/**
 
 
+# Run jobs on front-end directory
+defaults:
+  run:
+    working-directory: html
 
 jobs:
   path-context:
