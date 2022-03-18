@@ -6,9 +6,11 @@ on:
     branches: 
       - main
 
-working-directory: html
 
 # Run jobs on front-end directory
+
+run:
+  working-directory: html
 
 jobs:
   path-context:
