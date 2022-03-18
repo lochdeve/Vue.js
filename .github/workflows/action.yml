@@ -6,15 +6,19 @@ on:
     branches: 
       - main
 
+defaults:
+    run:
+      working-directory: html
 
 # Run jobs on front-end directory
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-      working-directory: html
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:       
+        os: [windows-latest, ubuntu-latest]
 
     name: Buils and Push
     steps:
