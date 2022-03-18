@@ -7,12 +7,8 @@ on:
       - main
     paths: 
       - html/**
-      - js/**
 
-# Run jobs on front-end directory
-defaults:
-  run:
-    working-directory: front-end
+
 
 jobs:
   path-context:
