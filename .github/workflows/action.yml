@@ -9,12 +9,13 @@ on:
 
 # Run jobs on front-end directory
 
-run:
+defaults:
+  runs-on: ubuntu-latest
   working-directory: html
 
 jobs:
   path-context:
-    runs-on: ubuntu-latest
+    
     name: Buils and Push
     steps:
       - uses: actions/checkout@v2.3.2
