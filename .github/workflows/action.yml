@@ -6,13 +6,13 @@ on:
     branches: 
       - main
 
+working-directory: html
 
 # Run jobs on front-end directory
 
 jobs:
   path-context:
     runs-on: ubuntu-latest
-    working-directory: html
     name: Buils and Push
     steps:
       - uses: actions/checkout@v2.3.2
