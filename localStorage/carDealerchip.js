@@ -21,7 +21,7 @@ const app = new Vue({
         this.newCar = '';
         this.newFuel = '';
         this.newStock = 0;
-        çthis.status = '';
+        this.status = '';
       } else {
         this.status = 'You must fill all the gaps';
       }
