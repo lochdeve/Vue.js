@@ -1,7 +1,6 @@
 # Vue.js
 This repository will be for practising Vue.js y bootstrap
 
-## Directories Struture
 
 ## Directory structure
 - The directory is organized as follows:
