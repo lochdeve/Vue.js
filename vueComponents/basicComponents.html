@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Components</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <!-- This is a development version of Vue.js! -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="components/greetings.js"></script>
+  <script src="components/counter.js"></script>
+</head>
+
+<body>
+  <div class="container" id="app">
+    <greetings></greetings>
+    <counter></counter>
+  </div>
+  <script>
+    new Vue({
+      el: '#app'
+    })
+  </script>
+</body>
+
+</html>
