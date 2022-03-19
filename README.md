@@ -1,2 +1,2 @@
 # Vue.js
-This repository will be for practising Vue.js
+This repository will be for practising Vue.js y bootstrap
