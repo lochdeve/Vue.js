@@ -5,6 +5,7 @@ Vue.component('child', {
       <h2>Child component</h2>
       <h5>Parent Age: {{age}}</h5>
       <h5>Name: {{name}}</h5>
+      <button class="btn btn-success btn-sm" @click="age++">+</button>
     </div>
   
   `,
