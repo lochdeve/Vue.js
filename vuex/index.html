@@ -15,6 +15,7 @@
   <div id="app" class="container">
     <number></number>
   </div>
+
   <script>
 
     Vue.component('number',
@@ -24,13 +25,16 @@
             <div>
               <h2>Number padre {{ number}}</h2>
               <numberChild></numberChild>
+              <ul v-for="course of courses">
+                <li>{{course.name}}</li>
+              </ul>
             </div>
           `,
         computed: {
           number() {
             return store.state.number // we dont use the $ simbol
           },
-          ...Vuex.mapState(['number'])
+          ...Vuex.mapState(['number', 'courses'])
         }
       }
     );
@@ -44,20 +48,26 @@
               <h2>Number hijo {{ number}}</h2>
               <button @click="increase">+</button>
               <button @click="decrease(2)">-</button>
+              <button @click="obtainCourses">Show courses</button>
+              <ul v-if="courses !== []">
+                <li></li>
+              </ul>
             </div>
           `,
         computed: {
-          ...Vuex.mapState(['number'])
+          ...Vuex.mapState(['number', 'courses'])
         },
         methods: {
-          ...Vuex.mapMutations(['increase', 'decrease'])
+          ...Vuex.mapMutations(['increase', 'decrease']),
+          ...Vuex.mapActions(['obtainCourses'])
         }
       }
     );
 
     const store = new Vuex.Store({
       state: {
-        number: 10
+        number: 10,
+        courses: []
       },
       mutations: {
         increase() {
@@ -65,10 +75,20 @@
         },
         decrease(state, n) { // i dont know why but if I put  decrease(n) it does not work
           state.number = this.state.number - n
+        },
+        filledCourses(state, actionCourses) {
+          state.courses = actionCourses
         }
         /* increase(state) {
            state.number++
          }*/
+      },
+      actions: {
+        obtainCourses: async function ({ commit }) {
+          const data = await fetch('courses.json');
+          const courses = await data.json();
+          commit('filledCourses', courses);
+        }
       }
 
     })
