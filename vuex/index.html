@@ -7,12 +7,66 @@
   <title>Page Title</title>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
   <!-- This is a development version of Vue.js! -->
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src='main.js'></script>
+  <script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuex@3.6.2/dist/vuex.js"></script>
 </head>
 
 <body>
+  <div id="app" class="container">
+    <number></number>
+  </div>
+  <script>
 
+    Vue.component('number',
+      {
+        template: //html
+          `
+            <div>
+              <h2>Number padre {{ $store.state.number}}</h2>
+              <numberChild></numberChild>
+            </div>
+          `
+      }
+    );
+
+
+    Vue.component('numberChild',
+      {
+        template: //html
+          `
+            <div>
+              <h2>Number hijo {{ $store.state.number}}</h2>
+              <button @click="$store.commit('increase')">+</button>
+            </div>
+          `
+      }
+    );
+
+    const store = new Vuex.Store({
+      state: {
+        number: 10
+      },
+      mutations: {
+        increase() {
+          this.state.number++
+        }
+        /* increase(state) {
+           state.number++
+         }*/
+      }
+
+    })
+
+    new Vue({
+      el: '#app',
+      data: {
+        title: 'testing vuex'
+      },
+      store: store // you can only put only store instead of store:store
+    })
+
+
+  </script>
 </body>
 
 </html>
