@@ -42,11 +42,15 @@
           `
             <div>
               <h2>Number hijo {{ number}}</h2>
-              <button @click="$store.commit('increase')">+</button>
+              <button @click="increase">+</button>
+              <button @click="decrease(2)">-</button>
             </div>
           `,
         computed: {
           ...Vuex.mapState(['number'])
+        },
+        methods: {
+          ...Vuex.mapMutations(['increase', 'decrease'])
         }
       }
     );
@@ -58,6 +62,9 @@
       mutations: {
         increase() {
           this.state.number++
+        },
+        decrease(state, n) { // i dont know why but if I put  decrease(n) it does not work
+          state.number = this.state.number - n
         }
         /* increase(state) {
            state.number++
