@@ -22,10 +22,16 @@
         template: //html
           `
             <div>
-              <h2>Number padre {{ $store.state.number}}</h2>
+              <h2>Number padre {{ number}}</h2>
               <numberChild></numberChild>
             </div>
-          `
+          `,
+        computed: {
+          number() {
+            return store.state.number // we dont use the $ simbol
+          },
+          ...Vuex.mapState(['number'])
+        }
       }
     );
 
@@ -35,10 +41,13 @@
         template: //html
           `
             <div>
-              <h2>Number hijo {{ $store.state.number}}</h2>
+              <h2>Number hijo {{ number}}</h2>
               <button @click="$store.commit('increase')">+</button>
             </div>
-          `
+          `,
+        computed: {
+          ...Vuex.mapState(['number'])
+        }
       }
     );
 
