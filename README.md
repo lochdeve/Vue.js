@@ -24,6 +24,10 @@ This repository will be for practising Vue.js y bootstrap
           ├── components
               ├── counter.js
               ├── greetings.js
-          ├── basicComponents.
+          ├── basicComponents.html
+      ├── vuex 
+          ├── courses.json
+          ├── index.html
+
       
       
